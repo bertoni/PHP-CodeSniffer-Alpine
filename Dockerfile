@@ -7,14 +7,14 @@ ENV USER_HOST abertoni
 ENV USER_UID  1000
 ENV USER_GID  1000
 
-# Upate packages and install datetimezone
-RUN apk update
-RUn apk upgrade
+# Create user
 RUN adduser -D -u ${USER_UID} -g ${USER_GID} ${USER_HOST}
 
-# Install PHPCS
-RUN apk add --no-cache patch
-RUN pear install PHP_CodeSniffer-3.0.0
+# Upate and install packages
+RUN apk update \
+    && apk upgrade \
+    && apk add --no-cache patch \
+    && pear install PHP_CodeSniffer-3.0.0
 
 # Clear caches
 RUN rm -rf /var/cache/apk/*

@@ -1,12 +1,19 @@
 PHP CODE SNIFFER WITH PHP 7.0 + Alpine
 ======================================
 
+
+About
+--------------------
+
+Standardize your PHP codes with the [CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) without installing the PHP and PHPCS in your host
+
+
 Build image
 --------------------
 
 Build from `Dockerfile`:
 
-	Inside dockerfile, change your username, user UID and GID. (You can know this values with command `cat /etc/passwd | grep $(whoami)`)
+Inside dockerfile, change your username, user UID and GID. (You can know this values with command `cat /etc/passwd | grep $(whoami)`)
 
 	`docker build --no-cache -t abertoni/phpcs .`
 
@@ -15,12 +22,12 @@ Build from `Dockerfile`:
 Usage
 --------------------
 
-	Run phpcs like command
+Run phpcs like command
 
 	docker run --rm -it --user abertoni -v /path/your/files:/path/scripts abertoni/phpcs phpcs --version
 	
 	
-	You can define a bash alias for run phpcs
+You can define a bash alias for run phpcs
 	
 	echo "alias phpcs='docker run --rm -it --user abertoni -v /path/your/files:/path/scripts abertoni/phpcs phpcs'" >> ~/.bashrc
 	source ~/.bashrc
